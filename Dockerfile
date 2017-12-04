@@ -10,6 +10,8 @@ RUN apk update && apk upgrade && \
     chmod +x /run.sh && \
     rm -rf /var/cache/apk/*
 
+WORKDIR /var/www/localhost
+
 EXPOSE 80 443
 
 ENTRYPOINT ["/run.sh"]
