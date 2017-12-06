@@ -4,18 +4,29 @@
 # Version: 1.0
 #
 
+CGI_PATH=/var/www/localhost/cgi-bin
 CONFIG_PATH=/etc/nginx/nginx.conf
 DOCUMENT_ROOT=/var/www/localhost/htdocs
-NGINX_LOGS=/var/www/localhost/logs
+LOGS_PATH=/var/www/localhost/logs
 VHOST_PATH=/etc/nginx/conf.d/localhost.conf
 
 #
-# Create nginx logs folder if not exists
+# Checks if required folder exists. If not, it will be created.
 #
-#if [[ ! -d ${NGINX_LOGS} ]]
-#then
-#    mkdir ${NGINX_LOGS}
-#fi
+if [[ ! -d ${CGI_PATH} ]]
+then
+    mkdir ${CGI_PATH}
+fi
+
+if [[ ! -d ${DOCUMENT_ROOT} ]]
+then
+    mkdir ${DOCUMENT_ROOT}
+fi
+
+if [[ ! -d ${LOGS_PATH} ]]
+then
+    mkdir ${LOGS_PATH}
+fi
 
 #
 # Set server name
